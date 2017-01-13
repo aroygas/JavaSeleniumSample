@@ -9,7 +9,7 @@
         <parameter name="userName" value="a.roygas@gmail.com"/>
         <parameter name="password" value="challenge"/>
         <classes>
-            <class name="com.datanyze.challange.AlertsTest"/>
+            <class name="com.datanyze.challange.ChallengeTest"/>
         </classes>
     </test>
 </suite>
