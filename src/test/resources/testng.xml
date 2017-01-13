@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Smoke Suite using GRID" preserve-order="true" verbose="1">
+    <listeners>
+        <listener class-name="net.sf.testng.databinding.TestAnnotationTransformer"/>
+    </listeners>
+    <test name="Login" verbose="1" preserve-order="true">
+        <parameter name="loginPage" value="https://www.datanyze.com/login/"/>
+        <parameter name="userName" value="a.roygas@gmail.com"/>
+        <parameter name="password" value="challenge"/>
+        <classes>
+            <class name="com.datanyze.challange.AlertsTest"/>
+        </classes>
+    </test>
+</suite>
