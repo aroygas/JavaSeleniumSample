@@ -1,11 +1,10 @@
-package com.datanyze.challange;
+package com.datanyze.challenge;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
 import pageFactory.HomePage;
 import pageFactory.LoginPage;
 
@@ -29,15 +28,13 @@ public class SuperTest {
     protected Logger LOG;
     //Create empty thread driver
     protected WebDriver driver = null;
-    //Declare soft assertions
-    protected SoftAssert softAssert;
     //WebDriver driver;
     int intImplicitlyWait = 10;
     private String currentMethodName;
 
     @BeforeSuite
-    @Parameters({"loginPage", "userName", "password"})
-    public void setUp(String loginPage, String userName, String password){
+    @Parameters({"url", "userName", "password"})
+    public void setUp(String url, String userName, String password){
         //Create logger
         System.out.println("\n\nStart test\n\n");
         LOG = Logger.getLogger("Start test");
@@ -45,7 +42,7 @@ public class SuperTest {
         System.setProperty("webdriver.chrome.driver", "chrome/chromedriver.exe");
         driver = new ChromeDriver();
         //Logging in
-        Login(loginPage, userName, password);
+        Login(url, userName, password);
     }
 
     @BeforeMethod
@@ -56,7 +53,8 @@ public class SuperTest {
     }
 
     @AfterSuite
-    public void postCondition() throws InterruptedException {
+    public void logOutAndClose() throws InterruptedException {
+        objHomePage.logOutOfThePlatform();
         //Close the browser
         driver.quit();
     }

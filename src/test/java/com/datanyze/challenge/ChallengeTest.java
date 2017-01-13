@@ -1,4 +1,4 @@
-package com.datanyze.challange;
+package com.datanyze.challenge;
 
 import org.testng.annotations.Test;
 import pageFactory.AlertsPage;
@@ -9,30 +9,31 @@ import pageFactory.DomainPage;
  */
 public class ChallengeTest extends SuperTest{
 
-    AlertsPage objAlertsPage = new AlertsPage(driver);
-    DomainPage objDomainPage = new DomainPage(driver);
+    AlertsPage objAlertsPage;
+    DomainPage objDomainPage;
 
     @Test(enabled = true, priority = 0)
     public void addTrackedTechnologies() {
+        objAlertsPage = new AlertsPage(driver);
         objHomePage.goToAlerts();
         objAlertsPage.goToAlertSettings();
-        objAlertsPage.addTechnology("FirstTechnology");
-        objAlertsPage.addTechnology("SecondTechnology");
+        objAlertsPage.addTechnology("Yandex Metrica");
+        objAlertsPage.addTechnology("Adobe Campaign");
         objAlertsPage.saveAlertSettings();
         System.out.println("Technologies added!");
     }
 
     @Test(enabled = true, priority = 1)
     public void addFilters() {
-        objAlertsPage.goToFilters();
-        objAlertsPage.addFilter("FirstFilter");
-        objAlertsPage.addFilter("SecondFilter");
+        objAlertsPage.addFilter("Country");
+        objAlertsPage.addFilter("Tag");
         objAlertsPage.saveAlertFilters();
         System.out.println("Filters added!");
     }
 
     @Test(enabled = true, priority = 2)
     public void searchForDomain() {
+        objDomainPage = new DomainPage(driver);
         objDomainPage.searchForDomain();
         objDomainPage.goToCompanyTab();
         objDomainPage.goToPeopleTab();
