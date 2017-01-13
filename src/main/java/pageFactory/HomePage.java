@@ -20,7 +20,7 @@ public class HomePage extends SuperPage{
     @FindBy(xpath="//a[@href='https://www.datanyze.com/alerts/']")
     WebElement alerts;
 
-    @FindBy(xpath="//span[@class='menu-labels'][contains(text(),'Domains')]")
+    @FindBy(xpath="//a[@href='https://www.datanyze.com/domains/']")
     WebElement domains;
 
     @FindBy(xpath="//span[@class='hidden-xs user-name-line']")
@@ -44,16 +44,16 @@ public class HomePage extends SuperPage{
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(closeWelcomeDialog));
         closeWelcomeDialog.click();
-    }
-
-    public void goToAlerts() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(alerts));
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void goToAlerts() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(alerts));
         alerts.click();
     }
 
@@ -62,6 +62,13 @@ public class HomePage extends SuperPage{
     }
 
     public void logOutOfThePlatform() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(profileButton));
         profileButton.click();
         logOutButton.click();
     }

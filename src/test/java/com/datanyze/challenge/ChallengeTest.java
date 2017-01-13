@@ -34,10 +34,10 @@ public class ChallengeTest extends SuperTest{
     @Test(enabled = true, priority = 2)
     public void searchForDomain() {
         objDomainPage = new DomainPage(driver);
-        objDomainPage.searchForDomain();
+        objDomainPage.searchForDomain("amazon.com");
         objDomainPage.goToCompanyTab();
         objDomainPage.goToPeopleTab();
-        objDomainPage.addAllEmployeesToList("Test Company Prospects");
+        objDomainPage.addAllEmployeesToNewList("Test Company Prospects");
         System.out.println("Filters added!");
     }
 }
