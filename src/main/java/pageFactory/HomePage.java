@@ -21,6 +21,9 @@ public class HomePage extends SuperPage{
     @FindBy(xpath="//span[@class='menu-labels'][contains(text(),'Domains')]")
     WebElement domains;
 
+    @FindBy(xpath="//span[@class='menu-labels'][contains(text(),'Domains')]")
+    WebElement logOutButton;
+
     //There is no default constructor in SuperPage so we'll use this one with driver as @param to use same driver instance in all tests
     public HomePage(WebDriver driver) {
         super(driver);
@@ -40,6 +43,10 @@ public class HomePage extends SuperPage{
 
     public void goToDomains() {
         closeWelcomeDialog.click();
+    }
+
+    public void logOutOfThePlatform() {
+        logOutButton.click();
     }
 
 }

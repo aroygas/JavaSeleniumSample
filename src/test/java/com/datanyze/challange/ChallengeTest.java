@@ -2,6 +2,7 @@ package com.datanyze.challange;
 
 import org.testng.annotations.Test;
 import pageFactory.AlertsPage;
+import pageFactory.DomainPage;
 
 /**
  * Created by aroyg on 13.01.2017.
@@ -9,6 +10,7 @@ import pageFactory.AlertsPage;
 public class ChallengeTest extends SuperTest{
 
     AlertsPage objAlertsPage = new AlertsPage(driver);
+    DomainPage objDomainPage = new DomainPage(driver);
 
     @Test(enabled = true, priority = 0)
     public void addTrackedTechnologies() {
@@ -31,17 +33,10 @@ public class ChallengeTest extends SuperTest{
 
     @Test(enabled = true, priority = 2)
     public void searchForDomain() {
-        objHomePage.goToAlerts();
-        objAlertsPage.goToAlertSettings();
-        objAlertsPage.addTechnology("FirstTechnology");
-        objAlertsPage.addTechnology("SecondTechnology");
-        objAlertsPage.saveAlertSettings();
-        System.out.println("Technologies added!");
-        objAlertsPage.goToFilters();
-        objAlertsPage.addFilter("FirstFilter");
-        objAlertsPage.addFilter("SecondFilter");
-        objAlertsPage.saveAlertFilters();
+        objDomainPage.searchForDomain();
+        objDomainPage.goToCompanyTab();
+        objDomainPage.goToPeopleTab();
+        objDomainPage.addAllEmployeesToList("Test Company Prospects");
         System.out.println("Filters added!");
     }
-
 }
