@@ -38,6 +38,6 @@ public class ChallengeTest extends SuperTest{
         objDomainPage.goToCompanyTab();
         objDomainPage.goToPeopleTab();
         objDomainPage.addAllEmployeesToNewList("Test Company Prospects");
-        System.out.println("Filters added!");
+        System.out.println("All employees added to new list!");
     }
 }
