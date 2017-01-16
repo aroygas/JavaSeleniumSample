@@ -35,6 +35,9 @@ public class DomainPage extends SuperPage {
     @FindBy(xpath="//input[@value='Create list']")
     WebElement createList;
 
+    @FindBy(xpath="//span[contains(text(),'people were added to list')]")
+    public WebElement peopleWereAddedToList;
+
     //There is no default constructor in SuperPage so we'll use this one with driver as @param to use same driver instance in all tests
     public DomainPage(WebDriver driver) {
         super(driver);
@@ -58,13 +61,10 @@ public class DomainPage extends SuperPage {
         selectAll();
         addToList.click();
         createAnotherList.click();
-        System.out.println("createAnotherList.click();");
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(newListNameInput));
         newListNameInput.click();
-        System.out.println("newListNameInput.click();");
         newListNameInput.sendKeys(strListName);
-        System.out.println("newListNameInput.sendKeys(strListName);");
         createList.click();
     }
 
